@@ -24,7 +24,7 @@ class PessoaFisica(Usuario):
         """Acessa o documento do usuário.
 
         Retorna:
-            str: O documento do usuário.
+            int: O documento do usuário.
         """
         return self.cpf
     
