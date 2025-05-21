@@ -6,7 +6,7 @@ class PessoaFisica(Usuario):
     Atributos:
         nome (str): O usuário do sistema.
         email (str): O email do usuário.
-        cpf: (str): O cpf do usuário
+        cpf: (int): O cpf do usuário
     """
     def __init__(self, nome, email, cpf):
         super().__init__(nome, email)
