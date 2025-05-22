@@ -7,7 +7,7 @@ class ContaPoupanca(ContaBancaria):
     """Classe que representa uma ContaPoupanca do sistema. 
 
     Atributos:
-        usuário (obj): O objeto Usuário.
+        Usuário (obj): O objeto Usuário.
     """
     def __init__(self, usuario):
         super().__init__(usuario)
@@ -79,7 +79,7 @@ class ContaPoupanca(ContaBancaria):
         """Acessa uma representação do atributo da ContaCorrente.
 
         Retorna:
-            usuário (Usuário): O usuário da conta.
-            str (tipo_conta): O tipo da costa bancária
+            Usuário (obj): O usuário da conta.
+            tipo_conta (str): O tipo da costa bancária
         """
         return f"Tipo de conta: {self.tipo_conta()} | {self.usuario}" 
