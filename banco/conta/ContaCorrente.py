@@ -1,6 +1,6 @@
 from banco.conta.ContaBancaria import ContaBancaria
 #from banco.transacao.Saque import Saque
-#from banco.transacao.Deposito import Deposito
+from banco.transacao.Deposito import Deposito
 #from banco.transacao.Transferencia import Transferencia
 
 class ContaCorrente(ContaBancaria):
@@ -26,7 +26,7 @@ class ContaCorrente(ContaBancaria):
             raise ValueError("O valor do depósito deve ser maior que zero.")
         
         self.saldo += valor
-        #self.historico.add_transacao(Deposito(valor, "Depósito"))
+        self.historico.adicionar_transacao(Deposito(valor, "Depósito"))
 
     def sacar(self, valor):
         """Saca valor da conta.

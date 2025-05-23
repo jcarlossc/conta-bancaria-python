@@ -1,6 +1,6 @@
 from banco.conta.ContaBancaria import ContaBancaria
 #from banco.transacao.Saque import Saque
-#from banco.transacao.Deposito import Deposito
+from banco.transacao.Deposito import Deposito
 #from banco.transacao.Transferencia import Transferencia
 
 class ContaPoupanca(ContaBancaria):
