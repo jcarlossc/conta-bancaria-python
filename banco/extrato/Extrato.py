@@ -16,7 +16,10 @@ class Extrato:
         print("---------------------------------------- EXTRATO ----------------------------------------")
         print(f"TIPO DE CONTA: {conta.tipo_conta()}")
         print(f"TITULAR: {conta.usuario.nome}")
-        print(f"CPF: {conta.usuario.cpf}")
+        if conta.usuario.tipo_usuario() == "Pessoa Física":
+            print(f"CPF: {conta.usuario.documento()}")
+        else:    
+            print(f"CNPJ: {conta.usuario.documento()}")
         print(f"SALDO: R$ {round(conta.saldo, 2)}")
         print("LISTA DE TRANSAÇÕES")
         for transacao in conta.historico.transacoes:
