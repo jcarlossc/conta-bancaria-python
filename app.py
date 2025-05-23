@@ -18,3 +18,9 @@ print(cc1.historico.acessa_transacoes())
 
 ex = Extrato()
 ex.acessar_extrato(cc1)
+
+cc2.depositar(5000)
+cc2.sacar(1000)
+cc2.transferir(1000, cc1)
+
+ex.acessar_extrato(cc2)
