@@ -1,4 +1,4 @@
-#from banco.transacao.Transacao import Transacao
+from banco.transacao.Transacao import Transacao
 import datetime 
 
 class Historico:
