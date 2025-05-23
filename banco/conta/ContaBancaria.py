@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-#from banco.historico.Historico import Historico
+from banco.historico.Historico import Historico
 
 class ContaBancaria(ABC):
     """ Classe que representa uma conta bancária do sistema. 
@@ -10,7 +10,7 @@ class ContaBancaria(ABC):
     def __init__(self, usuario):
         self.usuario = usuario
         self.saldo = 0.0
-        #self.historico = Historico()
+        self.historico = Historico()
 
     @abstractmethod
     def tipo_conta(self):
