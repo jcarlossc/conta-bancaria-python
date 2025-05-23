@@ -1,20 +1,20 @@
 from banco.transacao.Transacao import Transacao
 
-class Deposito(Transacao):
-    """Classe que representa a transaçao Depósito. 
+class Saque(Transacao):
+    """Classe que representa a transaçao Saque. 
 
     Atributos:
         valor (float): O valor da transaçao.
         tipo (str): O tipo da transação.
     """
     def __init__(self, valor, tipo):
-        super().__init__(valor, tipo)
+        super().__init__(valor, tipo)   
 
     def __str__(self):
-        """Acessa uma representação do atributo Depósito.
+        """Acessa uma representação do atributo do Saque.
 
         Retorna:
             valor (float): O valor da transaçao.
             tipo (str): O tipo da transação.
         """
-        return f"{self.valor}"     
+        return f"{self.valor}" 
