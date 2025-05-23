@@ -17,4 +17,4 @@ class Saque(Transacao):
             valor (float): O valor da transaçao.
             tipo (str): O tipo da transação.
         """
-        return f"{self.valor}" 
+        return f"{self.valor} - {self.tipo}" 

@@ -1,7 +1,7 @@
 from banco.conta.ContaBancaria import ContaBancaria
-#from banco.transacao.Saque import Saque
+from banco.transacao.Saque import Saque
 from banco.transacao.Deposito import Deposito
-#from banco.transacao.Transferencia import Transferencia
+from banco.transacao.Transferencia import Transferencia
 
 class ContaCorrente(ContaBancaria):
     """Classe que representa uma ContaCorrente do sistema. 
@@ -44,7 +44,7 @@ class ContaCorrente(ContaBancaria):
             raise ValueError("O valor do saque deve ser menor ou igual ao saldo.")
         
         self.saldo -= valor 
-        #self.historico.add_transacao(Saque(valor, "Saque"))  
+        self.historico.adicionar_transacao(Saque(valor, "Saque"))  
 
         
     def transferir(self, valor, destino):
@@ -64,8 +64,7 @@ class ContaCorrente(ContaBancaria):
         
         self.sacar(valor)
         destino.depositar(valor)
-        #self.historico.add_transacao(Transferencia(valor, "Transferência"))  
-
+        self.historico.adicionar_transacao(Transferencia(valor, "Transferência"))  
 
     def tipo_conta(self):
         """Acessa o tipo de conta.
