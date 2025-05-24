@@ -7,8 +7,15 @@ class Usuario(ABC):
         nome (str): O usuário do sistema.
         email (str): O email do usuário.
     """
-    def __init__(self, nome, email):
+    def __init__(self):
+        pass
+
+    def adicionar_nome(self, nome):
+        """Adiciona o nome do usuário."""
         self.nome = nome
+
+    def adicionar_email(self, email):
+        """Adiciona o email co usuário."""
         self.email = email
 
     @abstractmethod
