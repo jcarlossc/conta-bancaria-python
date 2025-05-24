@@ -7,10 +7,10 @@ from banco.extrato.Extrato import Extrato
 
 ex = Extrato()
 
-pj2 = PessoaJuridica('carlos', 'carlos@email.com', 33333333333)
+pj2 = PessoaJuridica('jose carlos', 'carlos@email.com', 12345678998)
 cp2 = ContaPoupanca(pj2)
 
-pf1 = PessoaFisica('jose', 'jose@email.com', 22222222222)
+pf1 = PessoaFisica('maria jose', 'jose@email.com', 98765432198765)
 cc1 = ContaCorrente(pf1)
 
 cc1.depositar(500)
