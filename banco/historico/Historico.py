@@ -1,6 +1,6 @@
 import datetime
 from typing import List, Dict, Any
-#from banco.transacao.Transacao import Transacao 
+from banco.transacao.Transacao import Transacao 
 
 class Historico:
     """Classe que representa o histórico das transações. 
@@ -12,7 +12,7 @@ class Historico:
         self.transacoes: List[Dict[str, Any]] = []
         self.data_hora = datetime.datetime.now()
 
-    def adicionar_transacao(self, transacao) -> None:   
+    def adicionar_transacao(self, transacao: Transacao) -> None:   
         """Adiciona às transações ao histórico.
 
         Retorna:
