@@ -1,5 +1,8 @@
 from banco.conta.ContaBancaria import ContaBancaria
 from banco.usuario.Usuario import Usuario
+from banco.transacao.Saque import Saque
+from banco.transacao.Deposito import Deposito
+from banco.transacao.Transferencia import Transferencia
 
 class ContaCorrente(ContaBancaria):
     """Classe que representa uma ContaCorrente do sistema. 
@@ -25,7 +28,7 @@ class ContaCorrente(ContaBancaria):
             raise ValueError("O valor do depósito deve ser maior que zero.")
         
         self.saldo += valor
-        #self.historico.adicionar_transacao(Deposito(valor, "Depósito"))
+        self.historico.adicionar_transacao(Deposito(valor, "Depósito"))
 
     def sacar(self, valor: float, registrar=True) -> None:
         """- Saca valor da conta.
@@ -44,8 +47,7 @@ class ContaCorrente(ContaBancaria):
         
         self.saldo -= valor 
         if registrar:
-            #self.historico.adicionar_transacao(Saque(valor, "Saque"))  
-            pass
+            self.historico.adicionar_transacao(Saque(valor, "Saque"))  
 
     def transferir(self, valor: float, conta_destino: Usuario) -> None:
         """- Transfere valor da conta.
@@ -65,7 +67,7 @@ class ContaCorrente(ContaBancaria):
         if self.sacar(valor, registrar=False):
             conta_destino.depositar(valor)
 
-        #self.historico.adicionar_transacao(Transferencia(valor, "Transferência")) 
+        self.historico.adicionar_transacao(Transferencia(valor, "Transferência")) 
 
     def tipo_conta(self) -> str:
         """Acessa o tipo de conta.
