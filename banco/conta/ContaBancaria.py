@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from banco.historico.Historico import Historico
 from banco.usuario.Usuario import Usuario
 
 class ContaBancaria(ABC):
@@ -10,7 +11,7 @@ class ContaBancaria(ABC):
     def __init__(self, usuario: Usuario) -> None:
         self.saldo = 0.0
         self.usuario = usuario
-        #self.historico = Historico()
+        self.historico = Historico()
 
     @abstractmethod
     def tipo_conta(self) -> str:
