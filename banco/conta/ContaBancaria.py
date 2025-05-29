@@ -23,7 +23,7 @@ class ContaBancaria(ABC):
         pass   
 
     @abstractmethod
-    def depositar(self, valor) -> float:
+    def depositar(self, valor: float) -> None:
         """Deposita valor na conta.
            Método abstrato .
 
@@ -33,7 +33,7 @@ class ContaBancaria(ABC):
         pass
 
     @abstractmethod
-    def sacar(self, valor) -> float:
+    def sacar(self, valor: float) -> None:
         """Saca valor da conta.
            Método abstrato .
 
@@ -43,7 +43,7 @@ class ContaBancaria(ABC):
         pass  
 
     @abstractmethod    
-    def transferir(self, valor, conta_destino) -> float | object:    
+    def transferir(self, valor: float, conta_destino: Usuario) -> None:    
         """Transfere valor da conta.
            Método abstrato.
 
