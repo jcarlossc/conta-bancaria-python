@@ -11,7 +11,7 @@ print(pf1, pf1.cpf, pf1.nome, pf1.email, pf1.tipo_usuario(), pf1.documento())
 cc1 = ContaCorrente(pf1)
 cc2 = ContaCorrente(pj1)
 
-cc1.depositar(500)
+cc1.depositar(500.65)
 cc1.sacar(200)
 cc1.transferir(100, cc2)
 print(cc1.saldo)
