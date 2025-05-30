@@ -1,21 +1,30 @@
+from banco.extrato.Extrato import Extrato
 from banco.usuario.PessoaFisica import PessoaFisica
 from banco.usuario.PessoaJuridica import PessoaJuridica
 from banco.conta.ContaCorrente import ContaCorrente
-from banco.historico.Historico import Historico
+from banco.conta.ContaPoupanca import ContaPoupanca
+
 
 pj1 = PessoaJuridica('carlos', 'carlos@gmail.com', 789)
-print(pj1, pj1.cnpj, pj1.nome, pj1.email, pj1.tipo_usuario(), pj1.documento())
 
 pf1 = PessoaFisica('jose', 'jose@gmail.com', 123)
-print(pf1, pf1.cpf, pf1.nome, pf1.email, pf1.tipo_usuario(), pf1.documento())
 
 cc1 = ContaCorrente(pf1)
-cc2 = ContaCorrente(pj1)
+cc2 = ContaPoupanca(pj1)
 
 cc1.depositar(500)
 cc1.sacar(200)
 cc1.transferir(100, cc2)
-print(cc1.saldo)
+
+cc2.depositar(5000)
+cc2.sacar(100)
+cc2.transferir(1000, cc1)
 
 
-print(cc1.historico.acessa_transacoes())
+
+ex = Extrato()
+ex.acessar_extrato(cc1)
+
+
+
+ex.acessar_extrato(cc2)
