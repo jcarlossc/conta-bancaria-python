@@ -30,5 +30,6 @@
 # ex.acessar_extrato(cc2)
 
 from banco.menu.Menu import Menu
-
-Menu.acessar_menu()
+if __name__ == "__main__":
+    menu = Menu()
+    menu.acessar_menu()
