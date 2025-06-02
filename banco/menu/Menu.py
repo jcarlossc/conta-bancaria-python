@@ -174,9 +174,41 @@ class Menu:
                         print(f"❌ Opção inválida!")  
 
                 elif criacao_conta == "3":
-                    pass
+                    cpf_criacao_conta = input(f'🔍 DIGITE SEU CPF: ')
+
+                    if cpf_criacao_conta.isdigit():
+                        cpf_criacao_conta_int = int(cpf_criacao_conta)    
+                        
+                        if cpf_criacao_conta_int == pessoa_fisica.documento():
+                            conta_poupanca_fisica = ContaPoupanca(pessoa_fisica)
+                            limpar_tela()
+                            print(conta_poupanca_fisica)
+                            print(f"✅ CPF: {conta_poupanca_fisica.usuario.documento()} | Conta poupança criada com sucesso!")     
+
+                        else:
+                            limpar_tela()
+                            print(f"❌ Usuário não cadastrado!")
+
                 elif criacao_conta == "4":
-                    pass
+                    cnpj_criacao_conta = input(f'🔍 DIGITE SEU CNPJ: ')
+
+                    if cnpj_criacao_conta.isdigit():
+                        cnpj_criacao_conta_int = int(cnpj_criacao_conta)
+
+                        if cnpj_criacao_conta_int == pessoa_juridica.documento():
+                            conta_poupanca_juridica = ContaPoupanca(pessoa_juridica)
+                            limpar_tela()
+                            print(conta_poupanca_juridica)
+                            print(f"✅ CNPJ: {conta_poupanca_juridica.usuario.documento()} | Conta poupança criada com sucesso!")     
+
+                        else:
+                            limpar_tela()
+                            print(f"❌ Usuário não cadastrado!")
+
+                    else:
+                        limpar_tela()
+                        print(f"❌ Opção inválida!") 
+
                 else:
                     limpar_tela()
                     print(f"❌ Usuário não cadastrado!") 
