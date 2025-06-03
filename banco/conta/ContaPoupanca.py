@@ -45,7 +45,7 @@ class ContaPoupanca(ContaBancaria):
         if registrar:
             self.historico.adicionar_transacao(Saque(valor, "Saque"))
         
-    def transferir(self, valor: float, destino: ContaBancaria) -> None:
+    def transferir(self, valor: float, conta_destino: ContaBancaria) -> None:
         """Transfere valor da conta poupança.
            -Processa a transferência
            -Adiciona a tranferência ao histórico
@@ -53,13 +53,15 @@ class ContaPoupanca(ContaBancaria):
         Retorna:
             None
         """
+        if not isinstance(valor, (int, float)):
+            raise TypeError("O valor da transferência deve ser numérico.")
         if valor <= 0:
             raise ValueError("O valor do depósito deve ser maior que zero.")
         if valor > self.saldo:
             raise ValueError("O valor da transferência deve ser menor ou igual ao saldo.")
         
         self.sacar(valor, registrar=False)
-        destino.depositar(valor)
+        conta_destino.depositar(valor)
 
         self.historico.adicionar_transacao(Transferencia(valor, "Transferência")) 
 
