@@ -8,20 +8,20 @@ pf1 = PessoaFisica('Carlos da Costa', 'carloscosta@gmail.com', 12345678978)
 pj1 = PessoaJuridica('Jose Carlos', 'josecarlos@gmail.com', 98765432132165)
 
 cc1 = ContaCorrente(pf1)
-cc2 = ContaPoupanca(pj1)
+cp1 = ContaPoupanca(pj1)
 
 try:
-    cc2.depositar(5000)
+    cp1.depositar(5000)
 except Exception as e:
     print(f"[ERRO] Depósito inválido em cc2: {e}")
 
 try:
-    cc2.sacar(5500)
+    cp1.sacar(1000)
 except Exception as e:
     print(f"[ERRO] Saque em cc2: {e}")
 
 try:
-    cc2.transferir(1000, cc1)
+    cp1.transferir(1000, cc1)
 except Exception as e:
     print(f"[ERRO] Transferência de cc2 para cc1: {e}")
 
@@ -36,14 +36,14 @@ except Exception as e:
     print(f"[ERRO] Saque em cc1: {e}")
 
 try:
-    cc1.transferir(100, cc2)
+    cc1.transferir(100, cp1)
 except Exception as e:
     print(f"[ERRO] Transferência de cc1 para cc2: {e}")
 
 try:
     ex = Extrato()
     ex.acessar_extrato(cc1)
-    ex.acessar_extrato(cc2)
+    ex.acessar_extrato(cp1)
 except Exception as e:
     print(f"[ERRO] Acesso ao extrato: {e}")
 
