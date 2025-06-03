@@ -5,7 +5,7 @@ from banco.conta.ContaCorrente import ContaCorrente
 from banco.conta.ContaPoupanca import ContaPoupanca
 
 pf1 = PessoaFisica('Carlos da Costa', 'carloscosta@gmail.com', 12345678978)
-pj1 = PessoaJuridica('Jose Carlos', 'josecarlos@gmail.com', 98765432132165)
+pj1 = PessoaJuridica('Python S/A', 'python@gmail.com', 98765432132165)
 
 cc1 = ContaCorrente(pf1)
 cp1 = ContaPoupanca(pj1)
