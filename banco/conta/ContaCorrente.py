@@ -49,7 +49,7 @@ class ContaCorrente(ContaBancaria):
         if registrar:
             self.historico.adicionar_transacao(Saque(valor, "Saque"))  
 
-    def transferir(self, valor: float, conta_destino: Usuario) -> None:
+    def transferir(self, valor: float, conta_destino: ContaBancaria) -> None:
         """- Transfere valor da conta.
            - Processa a transferência
            - Adiciona a tranferência ao histórico
@@ -64,8 +64,8 @@ class ContaCorrente(ContaBancaria):
         if valor > self.saldo:
             raise ValueError("O valor da transferência deve ser menor ou igual ao saldo.")
         
-        if self.sacar(valor, registrar=False):
-            conta_destino.depositar(valor)
+        self.sacar(valor, registrar=False)
+        conta_destino.depositar(valor)
 
         self.historico.adicionar_transacao(Transferencia(valor, "Transferência")) 
 
