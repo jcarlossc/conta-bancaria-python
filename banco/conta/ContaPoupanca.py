@@ -22,6 +22,8 @@ class ContaPoupanca(ContaBancaria):
         Retorna:
             None.
         """
+        if not isinstance(valor, (int, float)):
+            raise TypeError("O valor do depósito deve ser numérico.")
         if valor <= 0:
             raise ValueError("O valor do depósito deve ser maior que zero.")
         
@@ -36,8 +38,10 @@ class ContaPoupanca(ContaBancaria):
         Retorna:
             None.
         """
+        if not isinstance(valor, (int, float)):
+            raise TypeError("O valor do saque deve ser numérico.")
         if valor <= 0:
-            raise ValueError("O valor do depósito deve ser maior que zero.")
+            raise ValueError("O valor do saque deve ser maior que zero.")
         if valor > self.saldo:
             raise ValueError("O valor do saque deve ser menor ou igual ao saldo.")
         
@@ -56,7 +60,7 @@ class ContaPoupanca(ContaBancaria):
         if not isinstance(valor, (int, float)):
             raise TypeError("O valor da transferência deve ser numérico.")
         if valor <= 0:
-            raise ValueError("O valor do depósito deve ser maior que zero.")
+            raise ValueError("O valor da transferência deve ser maior que zero.")
         if valor > self.saldo:
             raise ValueError("O valor da transferência deve ser menor ou igual ao saldo.")
         
