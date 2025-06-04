@@ -1,10 +1,6 @@
 import unittest
 from banco.conta.ContaCorrente import ContaCorrente
 from banco.usuario.PessoaFisica import PessoaFisica
-from banco.transacao.Deposito import Deposito
-from banco.transacao.Saque import Saque
-from banco.transacao.Transferencia import Transferencia
-
 
 class TestContaCorrente(unittest.TestCase):
 
