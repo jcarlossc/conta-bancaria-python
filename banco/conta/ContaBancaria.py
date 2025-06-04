@@ -44,7 +44,7 @@ class ContaBancaria(ABC):
         pass  
 
     @abstractmethod    
-    def transferir(self, valor: float, conta_destino: Usuario) -> None:    
+    def transferir(self, valor: float, conta_destino: "ContaBancaria") -> None:    
         """Transfere valor da conta.
            Método abstrato.
 

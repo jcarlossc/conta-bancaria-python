@@ -1,5 +1,8 @@
 import unittest
 from banco.conta.ContaBancaria import ContaBancaria
+from banco.transacao.Deposito import Deposito
+from banco.transacao.Saque import Saque
+from banco.transacao.Transferencia import Transferencia
 from banco.usuario.PessoaFisica import PessoaFisica
 from banco.historico.Historico import Historico
 
@@ -10,12 +13,12 @@ class ContaBancariaTeste(ContaBancaria):
 
     def depositar(self, valor: float) -> None:
         self.saldo += valor
-        self.historico.adicionar(f"Depósito de {valor}")
+        self.historico.adicionar_transacao(Deposito(valor, "Depósito"))
 
     def sacar(self, valor: float) -> None:
         if valor <= self.saldo:
             self.saldo -= valor
-            self.historico.adicionar(f"Saque de {valor}")
+            self.historico.adicionar_transacao(Saque(valor, "Saque"))
         else:
             raise ValueError("Saldo insuficiente")
 
@@ -23,14 +26,14 @@ class ContaBancariaTeste(ContaBancaria):
         if valor <= self.saldo:
             self.sacar(valor)
             conta_destino.depositar(valor)
-            self.historico.adicionar(f"Transferência de {valor} para {conta_destino.usuario.nome}")
+            self.historico.adicionar_transacao(Transferencia(valor, "Transferência"))
         else:
             raise ValueError("Saldo insuficiente para transferência")
 
 class TestContaBancaria(unittest.TestCase):
 
     def setUp(self):
-        self.usuario = PessoaFisica("Jose Carlos", "josecrlos@email.com", 12345678900)
+        self.usuario = PessoaFisica("Jose Carlos", "josecarlos@teste.com", 12345678900)
         self.conta = ContaBancariaTeste(self.usuario)
 
     def test_atributos_iniciais(self):
@@ -52,14 +55,14 @@ class TestContaBancaria(unittest.TestCase):
             self.conta.sacar(100)
 
     def test_transferencia_valida(self):
-        destinatario = ContaBancariaTeste(PessoaFisica("Maria", "maria@teste.com", 98765432100))
+        destinatario = ContaBancariaTeste(PessoaFisica("Maria Teresa", "mariateresa@email.com", 98765432100))
         self.conta.depositar(300)
         self.conta.transferir(100, destinatario)
         self.assertEqual(self.conta.saldo, 200)
         self.assertEqual(destinatario.saldo, 100)
 
     def test_transferencia_invalida(self):
-        destinatario = ContaBancariaTeste(PessoaFisica("Maria", "maria@teste.com", 98765432100))
+        destinatario = ContaBancariaTeste(PessoaFisica("Maria Teresa", "mariateresa@email.com", 98765432100))
         with self.assertRaises(ValueError):
             self.conta.transferir(100, destinatario)
 
