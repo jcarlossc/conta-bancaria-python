@@ -13,7 +13,6 @@ class TestTransacao(unittest.TestCase):
         self.assertEqual(str(transacao), "150.75 | Saque")
 
     def test_tipo_dado_incorreto(self):
-        # Não há validação no construtor, então isso deve passar sem erro.
         transacao = Transacao("cem", 123)
         self.assertEqual(transacao.valor, "cem")
         self.assertEqual(transacao.tipo, 123)
