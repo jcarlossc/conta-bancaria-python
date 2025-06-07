@@ -1,6 +1,6 @@
 import logging
 
-class Registros:
+class Logging:
     """Classe que gerencia os logs do sistema. 
 
     Atributos:
